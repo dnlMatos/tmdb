@@ -1,5 +1,6 @@
 import "./App.css";
 import Descricao from "./components/descricao/Descricao";
+import Filmes from "./components/filmes/Filmes";
 import Header from "./components/header/Header";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
      <Header/>
      <Descricao/>
+     <Filmes/>
     </div>
   );
 }
