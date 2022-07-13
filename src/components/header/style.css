@@ -1,0 +1,16 @@
+.header {
+    background: #5c16c5;
+}
+
+.header > .container > h2{
+    color: white;
+    letter-spacing: 2px;
+}
+
+.fig{
+    background: white;
+    width: 40px;
+    height: 15px;
+    border-radius: 10px;
+}
+
