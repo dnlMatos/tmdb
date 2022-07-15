@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
-import { Context } from "../../globalContext/context";
-import { AllCards, Card, Spinner } from "./style";
+import { AllCards, Card, Spinner } from "./styled";
 import { BeatLoader } from "react-spinners";
+import { Context } from "../../context/context";
 
 export default function Filmes() {
   const [loading, setLoading] = useState(true);
@@ -21,7 +21,7 @@ export default function Filmes() {
 
   return (
     <AllCards className="mt-3">
-      {loading ? (
+      {/* {loading ? (
         <Spinner>
           <BeatLoader color="#2d0c5d" />
         </Spinner>
@@ -51,7 +51,7 @@ export default function Filmes() {
             );
           })}
         </>
-      )}
+      )} */}
     </AllCards>
   );
 }
