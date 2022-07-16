@@ -6,10 +6,10 @@ export default function Descricao() {
   return (
     <div className="container-fluid descricao">
       <div className="container pt-5 pb-5">
-        <h2 className="m-0 p-0">
+        <h2 className="m-0 p-0 text-center">
           Milhões de filmes, séries e pessoas <br /> para descobrir. Explore já.
         </h2>
-        <p className="mt-4 mb-2">Filtre por:</p>
+        <p className="mt-4 mb-2 text-center">Filtre por:</p>
         <div className="container d-flex">
           <Button className="btn mx-auto">Ação</Button>
           <Button className="btn mx-auto">Crime</Button>

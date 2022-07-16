@@ -1,14 +1,21 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-    width: 38rem;
-`
+  cursor: pointer;
+  width: 12rem;
+  transition: 300ms ease-in-out;
+
+  &:hover {
+    transition: 300ms ease-in-out;
+    transform: scale(1.05);
+  }
+`;
 
 export const AllCards = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
 export const Spinner = styled.div`
   width: 94%;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getFilms } from "../requests/request";
 import { Context } from "./context";
 
-export default function globalContext(props) {
+export default function GlobalContext(props) {
   const [filmList, setFilmList] = useState([]);
 
   useEffect(() => {
@@ -11,7 +11,8 @@ export default function globalContext(props) {
 
   const getAllFilm = async () => {
     const response = await getFilms();
-    setFilmList(response);
+    console.log(response.results);
+    setFilmList(response.results);
   };
   return (
     <Context.Provider value={{ filmList, setFilmList }}>

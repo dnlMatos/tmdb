@@ -1,14 +1,12 @@
-import "./App.css";
-import Descricao from "./components/descricao/Descricao";
-import Filmes from "./components/filmes/Filmes";
-import Header from "./components/header/Header";
+import Router from "./components/routes/Router";
+import GlobalContext from "./context/globalContext";
 
 function App() {
   return (
     <div className="App">
-     <Header/>
-     <Descricao/>
-     <Filmes/>
+      <GlobalContext>
+        <Router />
+      </GlobalContext>
     </div>
   );
 }
