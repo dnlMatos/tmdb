@@ -5,6 +5,7 @@ import { AllCards, Card, Spinner } from "./styled";
 import { BeatLoader } from "react-spinners";
 import { Context } from "../../context/context";
 import { BASE_IMG } from "../../constants/base_url";
+import Descricao from "../descricao/Descricao";
 
 export default function Filmes() {
   const Base_Img = BASE_IMG;

@@ -14,6 +14,7 @@ export default function GlobalContext(props) {
     console.log(response.results);
     setFilmList(response.results);
   };
+  
   return (
     <Context.Provider value={{ filmList, setFilmList }}>
       {props.children}
