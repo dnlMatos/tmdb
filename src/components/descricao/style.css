@@ -1,14 +1,14 @@
 .descricao {
-    background: #2d0c5d;
+  background: #2d0c5d;
 }
 
-.descricao > .container > h2{
-    font-size: 2.2rem;
-    color: white;
-    letter-spacing: 2px;
+.descricao > .container > h2 {
+  font-size: 2.2rem;
+  color: white;
+  letter-spacing: 2px;
 }
 
-.descricao > .container > p{
-    font-size: 1.2rem;
-    color: white;
+.descricao > .container > p {
+  font-size: 1.2rem;
+  color: white;
 }
