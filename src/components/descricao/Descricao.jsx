@@ -3,13 +3,16 @@ import "./style.css";
 import { Button } from "./buttonStyled";
 import axios from "axios";
 import { BASE_GENRE } from "../../constants/base_url";
+import { Context } from "../../context/context";
+import { useContext } from "react";
 
 export default function Descricao() {
   const [generos, setGeneros] = useState([]);
-  const filtros = [];
+  const { filtros, setFiltros } = useContext(Context);
 
+  const generosFiltro = [];
   useEffect(() => {
-    chamaGeneros();
+    chamaGeneros();  
   }, []);
 
   const chamaGeneros = async () => {
@@ -18,13 +21,14 @@ export default function Descricao() {
   };
 
   const filtrosEscolhidos = (id) => {
-    if (filtros.includes(id)) {
-      const indice = filtros.indexOf(id)
-      filtros.splice(indice, 1)
+    if (generosFiltro.includes(id)) {
+      const indice = generosFiltro.indexOf(id)
+      generosFiltro.splice(indice, 1)
     } else {
-      filtros.push(id)
+      generosFiltro.push(id)
     }
-    console.log(filtros);
+    // setFiltros(generosFiltro)
+    console.log(`Chamada da var ${generosFiltro}`);
   };
 
 
