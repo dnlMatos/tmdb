@@ -1,0 +1,17 @@
+.descricao {
+    background: #2d0c5d;
+    color: white;
+  }
+
+  .container-img{
+    max-width: 250px;
+  }
+  
+  .container-img > img {    
+    border-radius: 10px;
+  }
+
+  .descLinha3{
+    width: 160px;
+  }
+
