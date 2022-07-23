@@ -1,17 +1,24 @@
+p {
+  margin: 0;
+}
+
 .descricao {
-    background: #2d0c5d;
-    color: white;
-  }
+  background: #2d0c5d;
+  color: white;
+}
 
-  .container-img{
-    max-width: 250px;
-  }
-  
-  .container-img > img {    
-    border-radius: 10px;
-  }
+.container-img {
+  width: 1200px;
+}
 
-  .descLinha3{
-    width: 160px;
-  }
+.container-img > img {
+  border-radius: 10px;
+}
 
+.descLinha3 {
+  /* width: 160px; */
+}
+
+.grafico {
+  max-width: 10%;
+}

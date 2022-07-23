@@ -3,9 +3,12 @@ import { useParams } from "react-router-dom";
 import { BASE_IMG } from "../../constants/base_url";
 import { detalhaFilme } from "../../requests/request";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 import moment from "moment";
 import "./style.css";
 import Cores from "../../constants/Cores";
+import Genero from "../generos/Genero";
+import Personagem from "../personagens/Personagem";
 
 export default function Detalhes() {
   const Base_Img = BASE_IMG;
@@ -13,7 +16,6 @@ export default function Detalhes() {
   const novoParams = Number(params.id.replace(":", ""));
   const [filme, setFilme] = useState([{}]);
 
-  const percentage = 66;
   useEffect(() => {
     detalheFilme(novoParams);
   }, []);
@@ -58,7 +60,7 @@ export default function Detalhes() {
   };
 
   return (
-    <div className="container-fluid descricao">
+    <div className="container-fluid descricao pt-5">
       <div className="container d-flex gap-5">
         <div className="container-img">
           <img
@@ -72,31 +74,44 @@ export default function Detalhes() {
             <h3>{filme.original_title}</h3>
             <h3>({moment(filme.release_date).format("YYYY")})</h3>
           </div>
-          <div className="descLinha2 d-flex gap-3">
+          <div className="descLinha2 d-flex gap-3 mb-4">
             <p>{moment(filme.release_date).format("DD/MM/YYYY")}</p>
-            <p>(GENEROS)</p>
+            <p>
+              <Genero />
+            </p>
             <p>{converteTempo(filme.runtime)}</p>
           </div>
-          <div className="descLinha3 d-flex">            
-            <CircularProgressbar
-              strokeWidth={7}
-              styles={buildStyles({
-                textSize: "28px",
-                pathColor: GetColorRating(filme.vote_average),
-                textColor: Cores.brand_green,
-                trailColor: HexToRgbA(GetColorRating(filme.vote_average), 0.3),
-                backgroundColor: Cores.brand_purple,
-              })}
-              background={true}
-              backgroundPadding={true}
-              value={filme.vote_average * 10}
-              text={`${filme.vote_average * 10}%`}
-            />
-            <p>Avaliação dos usuários</p>
+          <div className="descLinha3 d-flex align-items-lg-center gap-3 mb-4">
+            <div className="grafico">
+              <CircularProgressbar
+                strokeWidth={7}
+                styles={buildStyles({
+                  textSize: "28px",
+                  pathColor: GetColorRating(filme.vote_average),
+                  textColor: Cores.brand_green,
+                  trailColor: HexToRgbA(
+                    GetColorRating(filme.vote_average),
+                    0.3
+                  ),
+                  backgroundColor: Cores.brand_purple,
+                })}
+                background={true}
+                backgroundPadding={true}
+                value={filme.vote_average * 10}
+                text={`${filme.vote_average * 10}%`}
+              />
+            </div>
+            <p className="">
+              Avaliação dos
+              <br /> usuários
+            </p>
           </div>
-          <div className="descLinha4">
-            <p>Sinopse</p>
+          <div className="descLinha4 mb-4">
+            <h5>Sinopse</h5>
             <p>{filme.overview}</p>
+          </div>
+          <div className="descLinha5 mb-4">
+            <Personagem />
           </div>
         </div>
       </div>

@@ -16,7 +16,17 @@ export const detalhaFilme = async (id) => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`
     );
-    console.log(data)
+    return data
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+export const pegaPersonagens = async (id) => {
+  try {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${api_key}`
+    );
     return data
   } catch (error) {
     throw new Error(error);
