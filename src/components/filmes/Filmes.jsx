@@ -5,6 +5,7 @@ import { AllCards, Card, Spinner } from "./styled";
 import { BeatLoader } from "react-spinners";
 import { Context } from "../../context/context";
 import { BASE_IMG } from "../../constants/base_url";
+import { goToMovie } from "../../controller/coordinator";
 
 export default function Filmes() {
   const Base_Img = BASE_IMG;
@@ -32,7 +33,11 @@ export default function Filmes() {
           <div className="row gap-4 justify-content-center">
             {localFilmList?.map((filme) => {
               return (
-                <Card key={filme.id} className="card p-0 mb-5 ">
+                <Card
+                  key={filme.id}
+                  className="card p-0 mb-5 "
+                  onClick={() => goToMovie(filme.id)}
+                >
                   <img
                     className="card-img-top"
                     src={`${Base_Img + filme.poster_path}`}

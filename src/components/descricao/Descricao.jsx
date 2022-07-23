@@ -28,7 +28,6 @@ export default function Descricao() {
       generosFiltro.push(id)
     }
     // setFiltros(generosFiltro)
-    console.log(`Chamada da var ${generosFiltro}`);
   };
 
 

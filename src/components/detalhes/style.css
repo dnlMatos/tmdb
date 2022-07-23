@@ -1,0 +1,24 @@
+p {
+  margin: 0;
+}
+
+.descricao {
+  background: #2d0c5d;
+  color: white;
+}
+
+.container-img {
+  width: 1200px;
+}
+
+.container-img > img {
+  border-radius: 10px;
+}
+
+.descLinha3 {
+  /* width: 160px; */
+}
+
+.grafico {
+  max-width: 10%;
+}
