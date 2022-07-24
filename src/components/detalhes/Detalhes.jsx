@@ -62,56 +62,58 @@ export default function Detalhes() {
   return (
     <div className="container-fluid descricao pt-5">
       <div className="container d-flex gap-5">
-        <div className="container-img">
-          <img
-            className="card-img-top"
-            src={`${Base_Img + filme.poster_path}`}
-            alt={filme.original_title}
-          />
-        </div>
-        <div className="container-desc">
-          <div className="descLinha1 d-flex gap-2">
-            <h3>{filme.original_title}</h3>
-            <h3>({moment(filme.release_date).format("YYYY")})</h3>
+        <div className="row d-flex">
+          <div className="d-flex justify-content-center container-img col-12 col-md-4">
+            <img
+              className="img-fluid"
+              src={`${Base_Img + filme.poster_path}`}
+              alt={filme.original_title}
+            />
           </div>
-          <div className="descLinha2 d-flex gap-3 mb-4">
-            <p>{moment(filme.release_date).format("DD/MM/YYYY")}</p>
-            <p>
-              <Genero />
-            </p>
-            <p>{converteTempo(filme.runtime)}</p>
-          </div>
-          <div className="descLinha3 d-flex align-items-lg-center gap-3 mb-4">
-            <div className="grafico">
-              <CircularProgressbar
-                strokeWidth={7}
-                styles={buildStyles({
-                  textSize: "28px",
-                  pathColor: GetColorRating(filme.vote_average),
-                  textColor: Cores.brand_green,
-                  trailColor: HexToRgbA(
-                    GetColorRating(filme.vote_average),
-                    0.3
-                  ),
-                  backgroundColor: Cores.brand_purple,
-                })}
-                background={true}
-                backgroundPadding={true}
-                value={filme.vote_average * 10}
-                text={`${filme.vote_average * 10}%`}
-              />
+          <div className="container-desc col-12 col-md-8">
+            <div className="d-flex gap-2">
+              <h3>{filme.original_title}</h3>
+              <h3>({moment(filme.release_date).format("YYYY")})</h3>
             </div>
-            <p className="">
-              Avaliação dos
-              <br /> usuários
-            </p>
-          </div>
-          <div className="descLinha4 mb-4">
-            <h5>Sinopse</h5>
-            <p>{filme.overview}</p>
-          </div>
-          <div className="descLinha5 mb-4">
-            <Personagem />
+            <div className="descLinha2 d-flex gap-3 mb-4">
+              <p>{moment(filme.release_date).format("DD/MM/YYYY")}</p>
+              <p>
+                <Genero />
+              </p>
+              <p>{converteTempo(filme.runtime)}</p>
+            </div>
+            <div className="descLinha3 d-flex align-items-lg-center gap-3 mb-4">
+              <div className="grafico">
+                <CircularProgressbar
+                  strokeWidth={7}
+                  styles={buildStyles({
+                    textSize: "28px",
+                    pathColor: GetColorRating(filme.vote_average),
+                    textColor: Cores.brand_green,
+                    trailColor: HexToRgbA(
+                      GetColorRating(filme.vote_average),
+                      0.3
+                    ),
+                    backgroundColor: Cores.brand_purple,
+                  })}
+                  background={true}
+                  backgroundPadding={true}
+                  value={filme.vote_average * 10}
+                  text={`${filme.vote_average * 10}%`}
+                />
+              </div>
+              <p className="">
+                Avaliação dos
+                <br /> usuários
+              </p>
+            </div>
+            <div className="descLinha4 mb-4">
+              <h5>Sinopse</h5>
+              <p>{filme.overview}</p>
+            </div>
+            <div className="descLinha5 mb-4">
+              <Personagem />
+            </div>
           </div>
         </div>
       </div>
