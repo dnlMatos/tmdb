@@ -1,0 +1,27 @@
+.castContainer {
+  display: flex;
+  margin-top: 1.5rem;
+  flex-direction: row;
+  gap: 2rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.castCard {
+  min-width: 217px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  white-space: normal;
+  border-radius: 0.25rem;
+  box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.castCard > img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .castCard {
+    min-width: 148px;  
+  }
+}
