@@ -13,7 +13,7 @@ export default function Elenco() {
 
   useEffect(() => {
     chamaElenco(novoParams);
-  }, []);
+  });
 
   const chamaElenco = async (idFilme) => {
     const cast = await pegaPersonagens(idFilme);

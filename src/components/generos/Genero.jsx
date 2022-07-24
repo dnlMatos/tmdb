@@ -9,7 +9,7 @@ export default function Genero() {
 
   useEffect(() => {
     chamaGeneros(novoParams);
-  }, []);
+  });
 
   const chamaGeneros = async (idFilme) => {
     const generos = await detalhaFilme(idFilme);

@@ -18,28 +18,28 @@ export default function Detalhes() {
 
   useEffect(() => {
     detalheFilme(novoParams);
-  }, []);
+  }, [novoParams]);
 
   const converteTempo = (min) => {
-    if (min != 0) {
+    if (min !== 0) {
       let h = Math.floor(min / 60);
       let m = min % 60;
       h = h < 10 ? "0" + h + "h" : h + "h";
       m = m < 10 ? "0" + m + "min" : m + "min";
-      if (h == "00h") h = "";
-      if (m == "00min") m = "";
+      if (h === "00h") h = "";
+      if (m === "00min") m = "";
       return `${h} ${m}`;
     }
   };
 
   const HexToRgbA = (hex, opacity) => {
-    if (hex == undefined || hex == null) return "";
+    if (hex === undefined || hex === null) return "";
     const [r, g, b] = hex.match(/\w\w/g).map((x) => parseInt(x, 16));
     return `rgba(${r},${g},${b},${opacity})`;
   };
 
   const GetColorRating = (rating) => {
-    if (rating == 0) {
+    if (rating === 0) {
       return "#000000";
     } else if (rating > 0 && rating <= 3) {
       return Cores.brand_red;
@@ -65,7 +65,7 @@ export default function Detalhes() {
         <div className="row d-flex">
           <div className="d-flex justify-content-center container-img col-12 col-md-4">
             <img
-              className="img-fluid"
+              className="img-fluid mb-3"
               src={`${Base_Img + filme.poster_path}`}
               alt={filme.original_title}
             />

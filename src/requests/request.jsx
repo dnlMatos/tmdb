@@ -43,3 +43,14 @@ export const pegaVideos = async (id) => {
     throw new Error(error);
   }
 };
+
+export const pegaRecomendacoes = async (id) => {
+  try {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${api_key}`
+    );
+    return data;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
