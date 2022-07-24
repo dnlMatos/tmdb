@@ -1,5 +1,5 @@
-import Router from "./components/routes/Router";
 import GlobalContext from "./context/globalContext";
+import Router from "./routes/Router";
 
 function App() {
   return (

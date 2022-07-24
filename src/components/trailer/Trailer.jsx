@@ -35,12 +35,12 @@ export default function Trailer() {
 
   return (
     <div className="container mt-5">
-      <h3>Trailer</h3>
+      <h3 className="fw-bold">Trailer</h3>
       <div class="ratio ratio-16x9">
         <iframe
           src={baseYt + pegaTrailer()}
           width="100%"
-          height="500px"
+          height="400px"
           title="YouTube video"
           allowFullScreen
         ></iframe>

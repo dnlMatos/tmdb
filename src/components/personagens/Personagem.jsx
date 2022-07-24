@@ -9,7 +9,7 @@ export default function Personagem() {
 
   useEffect(() => {
     chamaPersonagens(novoParams);
-  }, []);
+  });
 
   const chamaPersonagens = async (idFilme) => {
     const personagens = await pegaPersonagens(idFilme);
@@ -20,7 +20,7 @@ export default function Personagem() {
     <div className="container d-flex flex-wrap gap-4 p-0">
       {personagem
         .filter((per) => {
-          return per.job == "Producer" || per.job == "Director" || per.job == "Characters";
+          return per.job === "Producer" || per.job === "Director" || per.job === "Characters";
         })
         .map((res, index) => {
           return (
