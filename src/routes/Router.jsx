@@ -5,7 +5,7 @@ import DetalhaFilme from "../pages/detalhaFilme"
 
 export default function Router() {
   return (
-    <BrowserRouter forceRefresh={true}>
+    <BrowserRouter>
       <Switch>
         <Route exact path={"/"}>
           <PaginaPrincipal />
