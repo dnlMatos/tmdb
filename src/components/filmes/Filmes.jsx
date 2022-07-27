@@ -15,12 +15,13 @@ export default function Filmes() {
   const [localFilmList, setLocalFilmList] = useState([]);
 
   useEffect(() => {
-    setLoading(false);
-    updateFilmList();
-  });
+    updateFilmList();   
+    setLoading(false); 
+  },[filmList]);
 
   const updateFilmList = async () => {
     await setLocalFilmList(filmList);
+    
   };
 
   return (
