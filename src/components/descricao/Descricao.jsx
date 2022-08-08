@@ -2,17 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { Button } from "./buttonStyled";
 import axios from "axios";
+import CloseIcon from "@mui/icons-material/Close";
 import { BASE_GENRE } from "../../constants/base_url";
-import { Context } from "../../context/context";
-import { useContext } from "react";
 
 export default function Descricao() {
   const [generos, setGeneros] = useState([]);
-  const { filtros, setFiltros } = useContext(Context);
+  const [generosFiltro, setgenerosFiltro] = useState([]);
 
-  const generosFiltro = [];
   useEffect(() => {
-    chamaGeneros();  
+    chamaGeneros();
   }, []);
 
   const chamaGeneros = async () => {
@@ -22,15 +20,22 @@ export default function Descricao() {
 
   const filtrosEscolhidos = (id) => {
     if (generosFiltro.includes(id)) {
-      const indice = generosFiltro.indexOf(id)
-      generosFiltro.splice(indice, 1)
+      const indice = generosFiltro.indexOf(id);
+
+      if (indice === 0) {
+        setgenerosFiltro([...generosFiltro.slice(indice + 1)]);
+      } else {
+        setgenerosFiltro([
+          ...generosFiltro.slice(0, indice),
+          ...generosFiltro.slice(indice + 1),
+        ]);
+      }
     } else {
-      generosFiltro.push(id)
+      setgenerosFiltro([...generosFiltro, id]);
     }
-    // setFiltros(generosFiltro)
   };
 
-
+  console.log(generosFiltro);
   return (
     <div className="container-fluid descricao">
       <div className="container pt-5 pb-5">
@@ -44,10 +49,15 @@ export default function Descricao() {
               return (
                 <Button
                   key={genero.id}
-                  className="btn gap-3"
+                  marked={generosFiltro.includes(genero.id)}
                   onClick={() => filtrosEscolhidos(genero.id)}
                 >
-                  {genero.name}
+                  {genero.name}{" "}
+                  {generosFiltro.includes(genero.id) ? (
+                    <CloseIcon className="closeIcon" />
+                  ) : (
+                    <></>
+                  )}
                 </Button>
               );
             })}
