@@ -50,10 +50,6 @@ export default function Detalhes() {
     }
   };
 
-  //   const goBack = () => {
-  //     history.goBack();
-  //   };
-
   const detalheFilme = async (idFilme) => {
     const resp = await detalhaFilme(idFilme);
     setFilme(resp);
