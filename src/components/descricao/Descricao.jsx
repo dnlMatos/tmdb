@@ -1,17 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { Button } from "./buttonStyled";
 import axios from "axios";
 import CloseIcon from "@mui/icons-material/Close";
 import { BASE_GENRE } from "../../constants/base_url";
+import { Context } from "../../context/context";
 
 export default function Descricao() {
   const [generos, setGeneros] = useState([]);
   const [generosFiltro, setgenerosFiltro] = useState([]);
+  const {
+    filmList,
+    filmFilters,
+    setfilmFilters,
+    localFilmList,
+    setLocalFilmList,
+  } = useContext(Context);
 
   useEffect(() => {
     chamaGeneros();
-  }, []);
+  }, [generosFiltro]);
+
+  useEffect(() => {
+    filmsFilters();
+  }, [generosFiltro]);
 
   const chamaGeneros = async () => {
     const result = await axios.get(`${BASE_GENRE}`);
@@ -35,6 +47,39 @@ export default function Descricao() {
     }
   };
 
+  const filmsFilters = () => {
+    let filmesFiltrados = [];
+    for (let i of generosFiltro) {
+      console.log(i);
+      const resul = filmList
+        .filter((filme) => {
+          return filme.genre_ids.includes(i);
+        })
+        .map((filme) => {
+          return filme;
+        });
+        filmesFiltrados = [...filmesFiltrados, resul]
+    }
+    setLocalFilmList(filmesFiltrados)
+    // const resul = filmList
+    //   .filter((filme) => {
+    //     return filme.genre_ids.includes(i);
+    //   })
+    //   .map((filme) => {
+    //     return filme;
+    //   });
+    // filmList.forEach((filme) => {
+    //   for (let i of generosFiltro) {
+    //     if (filme.genre_ids.includes(i)) {
+    //       filmesFiltrados = [...filmesFiltrados, filme];
+    //       break;
+    //     }
+    //   }
+    // });
+
+  };
+
+  console.log(localFilmList);
   console.log(generosFiltro);
   return (
     <div className="container-fluid descricao">

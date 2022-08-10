@@ -4,6 +4,8 @@ import { Context } from "./context";
 
 export default function GlobalContext(props) {
   const [filmList, setFilmList] = useState([]);
+  const [filmFilters, setfilmFilters] = useState([]);
+  const [localFilmList, setLocalFilmList] = useState([]);
 
   useEffect(() => {
     getAllFilm();
@@ -13,9 +15,18 @@ export default function GlobalContext(props) {
     const response = await getFilms();
     setFilmList(response.results);
   };
-  
+
   return (
-    <Context.Provider value={{ filmList, setFilmList }}>
+    <Context.Provider
+      value={{
+        filmList,
+        setFilmList,
+        filmFilters,
+        setfilmFilters,
+        localFilmList,
+        setLocalFilmList,
+      }}
+    >
       {props.children}
     </Context.Provider>
   );
