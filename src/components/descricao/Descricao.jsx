@@ -11,9 +11,6 @@ export default function Descricao() {
   const [generosFiltro, setgenerosFiltro] = useState([]);
   const {
     filmList,
-    filmFilters,
-    setfilmFilters,
-    localFilmList,
     setLocalFilmList,
   } = useContext(Context);
 
@@ -50,7 +47,6 @@ export default function Descricao() {
   const filmsFilters = () => {
     let filmesFiltrados = [];
     for (let i of generosFiltro) {
-      console.log(i);
       const resul = filmList
         .filter((filme) => {
           return filme.genre_ids.includes(i);
@@ -58,29 +54,11 @@ export default function Descricao() {
         .map((filme) => {
           return filme;
         });
-        filmesFiltrados = [...filmesFiltrados, resul]
+      filmesFiltrados = [...filmesFiltrados, resul];
     }
-    setLocalFilmList(filmesFiltrados)
-    // const resul = filmList
-    //   .filter((filme) => {
-    //     return filme.genre_ids.includes(i);
-    //   })
-    //   .map((filme) => {
-    //     return filme;
-    //   });
-    // filmList.forEach((filme) => {
-    //   for (let i of generosFiltro) {
-    //     if (filme.genre_ids.includes(i)) {
-    //       filmesFiltrados = [...filmesFiltrados, filme];
-    //       break;
-    //     }
-    //   }
-    // });
-
+    setLocalFilmList(filmesFiltrados);
   };
 
-  console.log(localFilmList);
-  console.log(generosFiltro);
   return (
     <div className="container-fluid descricao">
       <div className="container pt-5 pb-5">
