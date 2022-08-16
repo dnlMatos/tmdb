@@ -5,6 +5,7 @@
 .header > .container > h2{
     color: white;
     letter-spacing: 2px;
+    cursor: pointer;
 }
 
 .fig{

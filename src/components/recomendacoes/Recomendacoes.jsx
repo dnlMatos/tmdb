@@ -24,7 +24,6 @@ export default function Recomendacoes() {
     setRecomendacoes(resp.results);
   };
 
-  console.log(recomendacoes);
   return (
     <div className="container mt-5">
       <h3 className="fw-bold">Recomendações</h3>
